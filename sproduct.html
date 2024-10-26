@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>e-commerce website</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+</head>
+<body>
+
+    <section id="header">
+        <a href="#"><img src="imgg/logo.png" class="logo" alt="logo_img"></a>
+        
+        <div>
+            <ul id="navbar">
+                <!-- active class to highlight -->
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <!-- <li><a href="about.html">About</a></li> -->
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i  id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="imgg/products/f1.jpg" width="100%" id="MainImg" alt="">
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="imgg/products/f1.jpg" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="imgg/products/f2.jpg" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="imgg/products/f3.jpg" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="imgg/products/f4.jpg" width="100%" class="small-img" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home / T-shirt</h6>
+            <h4>Men's Fashion T-shirt</h4>
+            <!-- <h2>Rs.550.00</h2>
+            <select>
+                <option>Select Size</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>Small</option>
+                <option>Large</option>
+            </select>
+            <input type="number" id="numberInput" value="1" min="0">
+
+            <button class="normal">Add To Cart</button> -->
+            
+            <h6 id="product-brand"></h6>
+            <h4 id="product-name"></h4>
+            <h2 id="product-price"></h2>
+            <select>
+                <option>Select Size</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>Small</option>
+                <option>Large</option>
+            </select>
+            <input type="number" id="numberInput" value="1" min="0">
+            <button class="normal">Add To Cart</button>
+        </div>
+    </section>
+
+
+        
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Supper Collection with New Modern Design</p>
+        <div class="pro-container">
+            <a href="shop.html">   
+                <div class="pro">
+                    <img src="imgg/products/f1.jpg" alt="">
+                    <div class="des">
+                        <span>Bramd name</span>
+                        <h5>Cartoon tshirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.550</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-bag-shopping cart"></i></a>
+                </div>
+            </a>
+            <a href="shop.html">  
+                <div class="pro">
+                    <img src="imgg/products/f2.jpg" alt="">
+                    <div class="des">
+                        <span>Bramd name</span>
+                        <h5>Cartoon tshirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.550</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-bag-shopping cart"></i></a>
+                </div>
+            </a>
+            <a href="shop.html">  
+                <div class="pro">
+                    <img src="imgg/products/f3.jpg" alt="">
+                    <div class="des">
+                        <span>Bramd name</span>
+                        <h5>Cartoon tshirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.550</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-bag-shopping cart"></i></a>
+                </div>
+            </a>
+            <a href="shop.html">  
+                <div class="pro">
+                    <img src="imgg/products/f4.jpg" alt="">
+                    <div class="des">
+                        <span>Bramd name</span>
+                        <h5>Cartoon tshirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.550</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-bag-shopping cart"></i></a>
+                </div>
+            </a>
+                
+        </div>
+    </section>
+
+    <script>
+        // Image swapping logic for smaller images
+        var MainImg = document.getElementById("MainImg");
+        var smallimg = document.getElementsByClassName("small-img");
+    
+        // Update main image and selected product image source on click
+        for (let i = 0; i < smallimg.length; i++) {
+            smallimg[i].onclick = function() {
+                MainImg.src = smallimg[i].src;
+                // Update product's image source with the selected image
+                product.imgSrc = smallimg[i].src;
+            }
+        }
+    
+        // Retrieve and display the product details
+        const product = JSON.parse(localStorage.getItem("selectedProduct")) || {};
+        if (product) {
+            document.getElementById("product-brand").innerText = product.brand;
+            document.getElementById("product-name").innerText = product.name;
+            document.getElementById("product-price").innerText = `Rs.${product.price}`;
+            document.getElementById("MainImg").src = product.imgSrc;
+        }
+    
+        // Cart button logic to add selected product to cart with updated image source
+        document.querySelector(".normal").onclick = function() {
+            const cartProduct = {
+                ...product,
+                quantity: document.getElementById("numberInput").value,
+            };
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            cartItems.push(cartProduct);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            window.location.href = "cart.html";
+        };
+    </script>
+    
+    
+
+</body>
+</html>

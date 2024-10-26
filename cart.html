@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>e-commerce website</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="imgg/logo.png" class="logo" alt="logo_img"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Size</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table id="totals-table">
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td id="cart-subtotal">Rs.0</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td id="cart-total"><strong>Rs.0</strong></td>
+                </tr>
+            </table>
+            <!-- <button class="normal">Proceed to checkout</button> -->
+        </div>
+    </section>
+
+    <script>
+        // Sample cart items to populate localStorage for testing
+        // const sampleCartItems = [
+        //     { name: "Product 1", imgSrc: "imgg/products/f1.jpg", size: "M", price: 550, quantity: 1 },
+        //     { name: "Product 2", imgSrc: "imgg/products/f2.jpg", size: "L", price: 750, quantity: 2 }
+        // ];
+
+        // Uncomment the following line to initialize localStorage for testing
+        // localStorage.setItem("cartItems", JSON.stringify(sampleCartItems));
+
+        // Retrieve cart items from localStorage
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        // Find the cart table body
+        const cartTableBody = document.getElementById("cart-items");
+
+        // Function to render cart items
+        function renderCartItems() {
+            cartTableBody.innerHTML = ''; // Clear existing items
+            let subtotal = 0; // Initialize subtotal
+
+            // Render each product in the cart
+            cartItems.forEach(item => {
+                const row = document.createElement("tr");
+                const itemSubtotal = item.price * item.quantity;
+                subtotal += itemSubtotal; // Update subtotal
+
+                // Assign a data-name attribute to uniquely identify the row
+                row.setAttribute("data-name", item.name);
+
+                row.innerHTML = `
+                    <td><a href="#" onclick="removeItem('${item.name}', this)"><i class="fa-solid fa-circle-xmark"></i></a></td>
+                    <td><img src="${item.imgSrc}" alt="Product Image"></td>
+                    <td>${item.name}</td>
+                    <td>${item.size}</td>
+                    <td>Rs.${item.price}</td>
+                    <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.name}', this.value)"></td>
+                    <td>Rs.${itemSubtotal}</td>
+                `;
+                
+                cartTableBody.appendChild(row);
+            });
+
+            // Update subtotal and total display
+            document.getElementById("cart-subtotal").innerText = `Rs.${subtotal}`;
+            document.getElementById("cart-total").innerHTML = `<strong>Rs.${subtotal}</strong>`;
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(name, element) {
+            // Remove item from localStorage data
+            cartItems = cartItems.filter(item => item.name !== name);
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+            // Remove the specific row from the table directly
+            const row = element.closest("tr");
+            if (row) row.remove();
+
+            // Update totals
+            updateTotals();
+        }
+
+        // Function to update the totals after removing an item
+        function updateTotals() {
+            let subtotal = 0;
+            cartItems.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+
+            document.getElementById("cart-subtotal").innerText = `Rs.${subtotal}`;
+            document.getElementById("cart-total").innerHTML = `<strong>Rs.${subtotal}</strong>`;
+        }
+
+        // Function to update the quantity of an item in the cart
+        function updateQuantity(name, newQuantity) {
+            newQuantity = Math.max(1, parseInt(newQuantity)); // Ensure minimum quantity of 1
+            cartItems.forEach(item => {
+                if (item.name === name) {
+                    item.quantity = newQuantity; // Update quantity
+                }
+            });
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            updateTotals(); // Recalculate totals only
+        }
+
+        // Initial render of cart items
+        renderCartItems();
+    </script>
+</body>
+</html>

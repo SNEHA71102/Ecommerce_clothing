@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>e-commerce website</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="imgg/logo.png" class="logo" alt="logo_img"></a>
+        
+        <div>
+            <ul id="navbar">
+                <!-- active class to highlight -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i  id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="page-header-contact" class="about-header">
+        <h2>#let's talk</h2>
+        <p>LEAVE A MESSAGE, We love to hear from you!</p>
+    </section>
+
+    <section id="contact-detils" class="section-p1">
+        <div class="details">
+            <span>GET IN TOUCH</span>
+            <h2>Visit or Contact us today</h2>
+            <div>
+                <li>
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>contact@example.com</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>1111111111</p>
+                </li>
+            </div>
+        </div>
+
+        <div class="form-details">
+            <form id="contactForm">
+                <span>LEAVE A MESSAGE</span>
+                <h2>We Love to hear from YOU</h2>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="E-mail" required>
+                <input type="text" id="subject" placeholder="Subject" required>
+                <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <button type="submit" class="normal">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('contactForm').onsubmit = function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Retrieve values from the form inputs
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Create the complete message
+            const completeMessage = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+
+            // Here you can replace the alert with actual email-sending logic if you have a backend
+            alert(`Message sent:\n\n${completeMessage}`);
+
+            // Optionally, you can clear the form after submission
+            document.getElementById('contactForm').reset();
+        };
+    </script>
+
+</body>
+</html>
